@@ -1,0 +1,111 @@
+/* Importando fontes de alta qualidade do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  /* Paleta Inspirada em Papel Antigo e Capas de Vinil */
+  --bg-color: #fbf9f5;         /* Bege tom de papel/livro antigo */
+  --text-color: #2b2b2b;       /* Cinza escuro suave (evita a fadiga do preto puro) */
+  --accent-wine: #7a1f2e;      /* Vermelho vinho encorpado */
+  --border-color: #d1c7bd;     /* Linha sutil de divisão */
+  
+  --font-title: 'Cormorant Garamond', serif;
+  --font-body: 'Lora', serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  line-height: 1.8;
+  font-size: 1.15rem;
+  margin: 0;
+  padding: 0 20px;
+}
+
+/* Container Editorial Centralizado */
+.editorial-container {
+  max-width: 740px;
+  margin: 60px auto;
+}
+
+/* Títulos Estilo Revista */
+h1, h2, h3 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+}
+
+/* Letra Capitular (A primeira letra destacada) */
+.lead-paragraph::first-letter {
+  font-family: var(--font-title);
+  font-size: 4.2rem;
+  float: left;
+  line-height: 0.8;
+  margin-right: 12px;
+  color: var(--accent-wine);
+  font-weight: bold;
+}
+
+/* Citação Centralizada (Blockquote) */
+blockquote {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-style: italic;
+  text-align: center;
+  border-top: 1px solid var(--accent-wine);
+  border-bottom: 1px solid var(--accent-wine);
+  margin: 40px 0;
+  padding: 20px 10px;
+  color: var(--accent-wine);
+}
+
+/* Estilo Scrapbook / Foto Polaroid com Leve Rotação */
+.scrapbook-card {
+  background: #ffffff;
+  padding: 15px 15px 25px 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  margin: 40px 0;
+  transform: rotate(-1.5deg); /* Dá o tom analógico/desalinhado */
+  transition: transform 0.4s ease, opacity 0.6s ease;
+  
+  /* Estado inicial para o efeito JS de Scroll Reveal */
+  opacity: 0;
+  transform: translateY(30px) rotate(-1.5deg);
+}
+
+.scrapbook-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: sepia(15%); /* Sutil toque vintage */
+}
+
+.scrapbook-card .caption {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 12px;
+  color: #555;
+  font-style: italic;
+}
+
+/* Classe ativada pelo JS quando a foto aparece na tela */
+.scrapbook-card.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(-1.5deg);
+}
