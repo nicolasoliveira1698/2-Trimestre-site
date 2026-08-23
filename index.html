@@ -1,48 +1,153 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Manual - Editorial</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Manual Anti-Surto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <article class="editorial-container">
-    <header>
-      <h1>Título do Seu Capítulo</h1>
-      <p class="subtitle">Uma breve anotação ou subtítulo pessoal — Vol. 1</p>
+  <div class="site-wrapper">
+    <!-- Header Editorial -->
+    <header class="editorial-header">
+      <div class="meta-info">
+        <span>EDIÇÃO Nº 01</span>
+        <span>VOL. 01</span>
+      </div>
+      <h1 class="main-title">MANUAL ANTI-SURTO</h1>
+      
+      <nav class="nav-bar">
+        <button class="nav-btn" data-target="tab-1"><span class="num">01.</span> Conflito Interno</button>
+        <button class="nav-btn" data-target="tab-2"><span class="num">02.</span> A Filosofia</button>
+        <button class="nav-btn" data-target="tab-3"><span class="num">03.</span> O Acolhimento</button>
+        <button class="nav-btn" data-target="tab-4"><span class="num">04.</span> Pressão do Futuro</button>
+      </nav>
     </header>
 
-    <!-- Primeiro parágrafo com a letra capitular em vinho -->
-    <p class="lead-paragraph">
-      Escreva aqui o início do seu texto. A primeira letra vai se transformar automaticamente 
-      em uma capitular elegante na cor vinho, dando o tom de artigo de época.
-    </p>
+    <!-- Área de Conteúdo Central -->
+    <main class="content-container">
+      
+      <!-- Visualização Inicial (Índice Limpo) -->
+      <section id="default-view" class="tab-content active">
+        <div class="placeholder-box">
+          <p class="tag-number">ÍNDICE PRINCIPAL</p>
+          <h2>Selecione um tópico acima para iniciar a leitura.</h2>
+          <p>Um guia de baixa intensidade para mentes hiperativas. Navegue através dos capítulos no menu superior.</p>
+        </div>
+      </section>
 
-    <p>
-      Continuando a leitura, o texto flutua com excelente espaçamento, mantendo o visual limpo 
-      e focado na experiência de um refúgio de leitura.
-    </p>
+      <!-- Aba 01 -->
+      <section id="tab-1" class="tab-content">
+        <div class="card-header">
+          <span class="tag-number">01 / CAPÍTULO</span>
+          <button class="close-btn" aria-label="Fechar">&times; Voltar ao Índice</button>
+        </div>
+        <div class="reading-grid">
+          <div class="text-column">
+            <h2>Conflito Interno</h2>
+            <p>O ruído mental constante muitas vezes nasce do desacordo entre as nossas expectativas irrealistas e o ritmo concreto da realidade.</p>
+            <blockquote>
+              "Respirar fundo não resolve o mundo, mas devolve a você o controle do próximo passo."
+            </blockquote>
+            <p>Reconhecer a tempestade sem se tornar parte do vento é o primeiro passo para encontrar estabilidade em momentos de sobrecarga.</p>
+          </div>
+          <div class="media-column">
+            <div class="analog-frame">
+              <div class="image-placeholder">
+                <span>[ ILUSTRAÇÃO CONCEITUAL ]</span>
+              </div>
+              <p class="caption">Fig 1.1 — Registro de ruído e desaceleração.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Citação estilo Editorial -->
-    <blockquote>
-      "Uma frase de impacto do Sartre, Camus ou uma reflexão própria que merece destaque no centro da página."
-    </blockquote>
+      <!-- Aba 02 -->
+      <section id="tab-2" class="tab-content">
+        <div class="card-header">
+          <span class="tag-number">02 / CAPÍTULO</span>
+          <button class="close-btn" aria-label="Fechar">&times; Voltar ao Índice</button>
+        </div>
+        <div class="reading-grid">
+          <div class="text-column">
+            <h2>A Filosofia</h2>
+            <p>A simplicidade não é ausência de conteúdo, é a presença de espaço. Reclamar o próprio tempo exige filtrar o essencial do supérfluo.</p>
+            <blockquote>
+              "Nem toda urgência alheia precisa se tornar uma crise pessoal."
+            </blockquote>
+            <p>Adotar uma postura analógica no cotidiano é criar barreiras intencionais contra o fluxo ininterrupto de estímulos.</p>
+          </div>
+          <div class="media-column">
+            <div class="analog-frame">
+              <div class="image-placeholder">
+                <span>[ FOTO ANALÓGICA ]</span>
+              </div>
+              <p class="caption">Fig 2.1 — O espaço entre os pensamentos.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Card Polaroid / Scrapbook com Animação Smooth -->
-    <div class="scrapbook-card">
-      <img src="https://via.placeholder.com/600x400" alt="Fotografia Anotação">
-      <div class="caption">Anotação feita à mão no Manual Vol. 1</div>
-    </div>
+      <!-- Aba 03 -->
+      <section id="tab-3" class="tab-content">
+        <div class="card-header">
+          <span class="tag-number">03 / CAPÍTULO</span>
+          <button class="close-btn" aria-label="Fechar">&times; Voltar ao Índice</button>
+        </div>
+        <div class="reading-grid">
+          <div class="text-column">
+            <h2>O Acolhimento</h2>
+            <p>Permitir-se falhar ou pausar não é fraqueza. É a manutenção básica necessária para evitar colapsos maiores adiante.</p>
+            <blockquote>
+              "Trate seu ritmo atual com a paciência que você ofereceria a um amigo."
+            </blockquote>
+            <p>Crie um ambiente físico e mental seguro onde suas emoções possam ser processadas sem julgamentos precipitados.</p>
+          </div>
+          <div class="media-column">
+            <div class="analog-frame">
+              <div class="image-placeholder">
+                <span>[ REGISTRO VISUAL ]</span>
+              </div>
+              <p class="caption">Fig 3.1 — Zonas de pausa diária.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <p>
-      O restante do seu texto continua aqui de forma fluida e legível...
-    </p>
-  </article>
+      <!-- Aba 04 -->
+      <section id="tab-4" class="tab-content">
+        <div class="card-header">
+          <span class="tag-number">04 / CAPÍTULO</span>
+          <button class="close-btn" aria-label="Fechar">&times; Voltar ao Índice</button>
+        </div>
+        <div class="reading-grid">
+          <div class="text-column">
+            <h2>Pressão do Futuro</h2>
+            <p>A ansiedade é a tentativa de viver amanhã com os recursos de hoje. O futuro se constrói na microfísica do presente.</p>
+            <blockquote>
+              "O amanhã ainda não existe; não tente resolver dilemas hipotéticos hoje."
+            </blockquote>
+            <p>Ancore-se no que está ao seu alcance imediato. Reduza o horizonte de planejamento quando o cenário parecer opressor.</p>
+          </div>
+          <div class="media-column">
+            <div class="analog-frame">
+              <div class="image-placeholder">
+                <span>[ ILUSTRAÇÃO CONCEITUAL ]</span>
+              </div>
+              <p class="caption">Fig 4.1 — O horizonte do presente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-

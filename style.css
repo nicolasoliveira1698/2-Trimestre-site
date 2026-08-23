@@ -1,111 +1,236 @@
-/* Importando fontes de alta qualidade do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
-
+/* styles.css */
 :root {
-  /* Paleta Inspirada em Papel Antigo e Capas de Vinil */
-  --bg-color: #fbf9f5;         /* Bege tom de papel/livro antigo */
-  --text-color: #2b2b2b;       /* Cinza escuro suave (evita a fadiga do preto puro) */
-  --accent-wine: #7a1f2e;      /* Vermelho vinho encorpado */
-  --border-color: #d1c7bd;     /* Linha sutil de divisão */
-  
-  --font-title: 'Cormorant Garamond', serif;
-  --font-body: 'Lora', serif;
+  --bg-color: #F5F2EB;
+  --text-color: #1C1C1C;
+  --accent-color: #C84B20;
+  --border-color: #1C1C1C;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: var(--font-body);
-  line-height: 1.8;
-  font-size: 1.15rem;
-  margin: 0;
-  padding: 0 20px;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+  overflow-y: auto;
 }
 
-/* Container Editorial Centralizado */
-.editorial-container {
-  max-width: 740px;
-  margin: 60px auto;
-}
-
-/* Títulos Estilo Revista */
-h1, h2, h3 {
-  font-family: var(--font-title);
-  font-weight: 700;
-  color: var(--text-color);
-  line-height: 1.2;
-}
-
-h1 {
-  font-size: 3.2rem;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  text-align: center;
-  font-style: italic;
-  color: #666;
-  margin-bottom: 40px;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 20px;
-}
-
-/* Letra Capitular (A primeira letra destacada) */
-.lead-paragraph::first-letter {
-  font-family: var(--font-title);
-  font-size: 4.2rem;
-  float: left;
-  line-height: 0.8;
-  margin-right: 12px;
-  color: var(--accent-wine);
-  font-weight: bold;
-}
-
-/* Citação Centralizada (Blockquote) */
-blockquote {
-  font-family: var(--font-title);
-  font-size: 1.6rem;
-  font-style: italic;
-  text-align: center;
-  border-top: 1px solid var(--accent-wine);
-  border-bottom: 1px solid var(--accent-wine);
-  margin: 40px 0;
-  padding: 20px 10px;
-  color: var(--accent-wine);
-}
-
-/* Estilo Scrapbook / Foto Polaroid com Leve Rotação */
-.scrapbook-card {
-  background: #ffffff;
-  padding: 15px 15px 25px 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  margin: 40px 0;
-  transform: rotate(-1.5deg); /* Dá o tom analógico/desalinhado */
-  transition: transform 0.4s ease, opacity 0.6s ease;
-  
-  /* Estado inicial para o efeito JS de Scroll Reveal */
-  opacity: 0;
-  transform: translateY(30px) rotate(-1.5deg);
-}
-
-.scrapbook-card img {
+.site-wrapper {
   width: 100%;
-  height: auto;
-  display: block;
-  filter: sepia(15%); /* Sutil toque vintage */
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.scrapbook-card .caption {
-  font-size: 0.9rem;
+/* Cabeçalho Editorial */
+.editorial-header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1.5rem;
   text-align: center;
-  margin-top: 12px;
-  color: #555;
-  font-style: italic;
 }
 
-/* Classe ativada pelo JS quando a foto aparece na tela */
-.scrapbook-card.visible {
+.meta-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.main-title {
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+/* Navegação Horizontal */
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn .num {
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-right: 0.3rem;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.nav-btn:hover .num,
+.nav-btn.active .num {
+  color: var(--accent-color);
+}
+
+/* Área de Conteúdo */
+.content-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  box-shadow: 4px 4px 0px var(--border-color);
+}
+
+.tab-content.active {
+  display: block;
   opacity: 1;
-  transform: translateY(0) rotate(-1.5deg);
+}
+
+/* Estado de Índice Inicial */
+.placeholder-box {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.placeholder-box h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.placeholder-box p {
+  color: #555;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Layout de Leitura */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag-number {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  letter-spacing: 0.05em;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: var(--accent-color);
+}
+
+.reading-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .reading-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.text-column h2 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.text-column p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+blockquote {
+  border-left: 3px solid var(--accent-color);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--accent-color);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Slot de Mídia Estilo Polaroid / Fanzine */
+.analog-frame {
+  border: 1px solid var(--border-color);
+  padding: 0.8rem;
+  background-color: #FAF8F5;
+  box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 220px;
+  border: 1px dashed var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EFECE6;
+  color: #777;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.caption {
+  font-size: 0.75rem;
+  margin-top: 0.8rem;
+  color: #444;
+  font-style: italic;
+  text-align: center;
 }
