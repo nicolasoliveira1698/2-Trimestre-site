@@ -1,44 +1,27 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
-  const navButtons = document.querySelectorAll('.nav-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-  const closeButtons = document.querySelectorAll('.close-btn');
-  const defaultView = document.getElementById('default-view');
+  const links = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.page-section');
 
-  // Alternar abas
-  navButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetId = button.getAttribute('data-target');
-
-      // Atualizar classe dos botões
-      navButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      // Ocultar todas as abas e exibir a selecionada
-      tabContents.forEach(content => {
-        content.classList.remove('active');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Remove a classe 'active' de todos os botões e páginas
+      links.forEach(l => l.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+      
+      // Adiciona 'active' no link que foi clicado
+      this.classList.add('active');
+      
+      // Exibe a seção correspondente
+      const targetId = this.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
+      
+      // Rola de volta para o topo da página ao trocar de seção
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
-
-      const targetContent = document.getElementById(targetId);
-      if (targetContent) {
-        targetContent.classList.add('active');
-      }
-    });
-  });
-
-  // Botões de fechar (voltar ao índice)
-  closeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Limpar seleção dos botões
-      navButtons.forEach(btn => btn.classList.remove('active'));
-
-      // Ocultar todas as abas
-      tabContents.forEach(content => {
-        content.classList.remove('active');
-      });
-
-      // Retornar à visualização padrão do índice
-      defaultView.classList.add('active');
     });
   });
 });

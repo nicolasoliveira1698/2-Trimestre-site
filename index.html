@@ -1,152 +1,180 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manual Anti-Surto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="site-wrapper">
-    <!-- Header Editorial -->
-    <header class="editorial-header">
-      <div class="meta-info">
-        <span>EDIÇÃO Nº 01</span>
-        <span>VOL. 01</span>
+  <!-- Cabeçalho Centralizado -->
+  <header class="site-header">
+    <hr class="thin-line">
+    <h1>Manual Anti-Surto</h1>
+    <hr class="thin-line">
+    
+    <nav class="navigation">
+      <ul>
+        <li><a href="#" class="nav-link active" data-target="home">Início</a></li>
+        <li><a href="#" class="nav-link" data-target="pressao">Sob Pressão</a></li>
+        <li><a href="#" class="nav-link" data-target="conflito">Conflito Interno</a></li>
+        <li><a href="#" class="nav-link" data-target="filosofia">Filosofia</a></li>
+        <li><a href="#" class="nav-link" data-target="melancolia">Melancolia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Área de Conteúdo -->
+  <main class="content-area">
+    
+    <!-- PÁGINA: INÍCIO -->
+    <section id="home" class="page-section active">
+      <div class="intro-block">
+        <h2 class="editorial-title">Bem-vindo ao espaço sem algoritmos</h2>
+        <p class="intro-text">Vivemos na época mais "conectada" da história, mas nunca nos sentimos tão sós. Entre redes ditas sociais que na prática nos isolam, fones de ouvido no volume máximo e a cobrança absurda de ter o futuro resolvido aos 16 anos, sobra ruído e falta espaço para ser de verdade.</p>
+        <p class="intro-text">Este site não é um manual de instruções nem uma palestra acadêmica. É uma pausa para tirar a máscara por alguns minutos, entender a arquitetura do que você sente e perceber que você não está sozinho nessa bagunça.</p>
       </div>
-      <h1 class="main-title">MANUAL ANTI-SURTO</h1>
+    </section>
+
+    <!-- PÁGINA: SOB PRESSÃO -->
+    <section id="pressao" class="page-section">
+      <h2 class="section-title">Sob Pressão</h2>
       
-      <nav class="nav-bar">
-        <button class="nav-btn" data-target="tab-1"><span class="num">01.</span> Conflito Interno</button>
-        <button class="nav-btn" data-target="tab-2"><span class="num">02.</span> A Filosofia</button>
-        <button class="nav-btn" data-target="tab-3"><span class="num">03.</span> O Acolhimento</button>
-        <button class="nav-btn" data-target="tab-4"><span class="num">04.</span> Pressão do Futuro</button>
-      </nav>
-    </header>
+      <div class="intro-block">
+        <h3 class="wine-text">A pressão externa e o futuro</h3>
+        <p>"E aí, já escolheu o curso?", "Vai prestar vestibular pra quê?", "Já sabe em qual faculdade quer passar?". Se você tem entre 15 e 17 anos provavelmente já ouviu essas perguntas em quase toda reunião de família ou conversa na escola. Parece que, de repente, o mundo decidiu que você precisa ter os próximos 50 anos da sua vida perfeitamente desenhados.</p>
+      </div>
 
-    <!-- Área de Conteúdo Central -->
-    <main class="content-container">
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>O mito da decisão definitiva:</strong> O sistema faz parecer que escolher um caminho aos 16 anos é uma sentença irrevogável. A verdade? Essa escolha é apenas o seu próximo passo, não um contrato vitalício. Mudar de ideia, recalcular a rota e testar novas possibilidades faz parte do processo de crescer.</p>
+        </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Imagem / Ilustração 1 ]</span></div>
+        </div>
+      </div>
+
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>A ilusão da vitrine:</strong> Olhando ao redor, parece que vários colegas já têm um plano infalível, estão muito mais resolvidos do que você. Lembre-se: as pessoas só compartilham as certezas no feed e nos corredores; as dúvidas e a insegurança costumam ficar guardadas no quarto.</p>
+        </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Imagem / Ilustração 2 ]</span></div>
+        </div>
+      </div>
+
+      <div class="intro-block">
+        <p><strong>Expectativas dos outros VS Suas vontades:</strong> Muito do peso que você carrega não é seu, mas sim a projeção do que pais, professores ou que a sociedade esperam do seu futuro. Aprender a diferenciar o que é ruído externo do que realmente faz sentido para você é a primeira grande libertação.</p>
+        <p class="quote">A urgência dos outros não precisa virar sua ansiedade: "você não está atrasado para sua própria vida."</p>
+      </div>
+    </section>
+
+    <!-- PÁGINA: CONFLITO INTERNO -->
+    <section id="conflito" class="page-section">
+      <h2 class="section-title">Conflito Interno</h2>
       
-      <!-- Visualização Inicial (Índice Limpo) -->
-      <section id="default-view" class="tab-content active">
-        <div class="placeholder-box">
-          <p class="tag-number">ÍNDICE PRINCIPAL</p>
-          <h2>Selecione um tópico acima para iniciar a leitura.</h2>
-          <p>Um guia de baixa intensidade para mentes hiperativas. Navegue através dos capítulos no menu superior.</p>
-        </div>
-      </section>
+      <div class="intro-block">
+        <p>Colocar os fones no volume máximo antes de atravessar o corredor. Responder "tá tudo bem" no piloto automático. Rolar o feed até o dedo cansar, só para não ter que encarar o silêncio do quarto.</p>
+        <p>A gente passa boa parte do dia interpretando uma versão "segura" de nós mesmos — alguém que não passa vergonha, que se encaixa na turma e que parece ter tudo sob controle. O problema de usar uma máscara social por tanto tempo é que a gente esquece onde ela termina e onde nosso rosto de verdade começa.</p>
+      </div>
 
-      <!-- Aba 01 -->
-      <section id="tab-1" class="tab-content">
-        <div class="card-header">
-          <span class="tag-number">01 / CAPÍTULO</span>
-          <button class="close-btn" aria-label="Fechar">&times; Voltar ao Índice</button>
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>A máscara no palco:</strong> Viver para a plateia cansa. O sociólogo Erving Goffman dizia que a vida social é como um teatro: a gente cria um personagem para o "palco" (a escola, as redes) e esconde o que sente nos "bastidores". A pergunta é: quem é você quando as luzes apagam?</p>
+          <p><strong>Telas e fones:</strong> O volume no 100% nem sempre é só amor pela música; muitas vezes é autodefesa. Usamos o excesso de estímulo digital como um anestésico para abafar a voz interna que surge quando tudo fica calmo.</p>
         </div>
-        <div class="reading-grid">
-          <div class="text-column">
-            <h2>Conflito Interno</h2>
-            <p>O ruído mental constante muitas vezes nasce do desacordo entre as nossas expectativas irrealistas e o ritmo concreto da realidade.</p>
-            <blockquote>
-              "Respirar fundo não resolve o mundo, mas devolve a você o controle do próximo passo."
-            </blockquote>
-            <p>Reconhecer a tempestade sem se tornar parte do vento é o primeiro passo para encontrar estabilidade em momentos de sobrecarga.</p>
-          </div>
-          <div class="media-column">
-            <div class="analog-frame">
-              <div class="image-placeholder">
-                <span>[ ILUSTRAÇÃO CONCEITUAL ]</span>
-              </div>
-              <p class="caption">Fig 1.1 — Registro de ruído e desaceleração.</p>
-            </div>
-          </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Imagem / Ilustração 1 ]</span></div>
         </div>
-      </section>
+      </div>
 
-      <!-- Aba 02 -->
-      <section id="tab-2" class="tab-content">
-        <div class="card-header">
-          <span class="tag-number">02 / CAPÍTULO</span>
-          <button class="close-btn" aria-label="Fechar">&times; Voltar ao Índice</button>
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>A mente em modo simulação:</strong> Ansiedade é a sua cabeça agindo como um diretor de filme de terror barato — criando cenários catastróficos para uma situação simples. Você sofre por um roteiro fictício que nem aconteceu.</p>
+          <p><strong>A "Má-Fé":</strong> O filósofo Jean-Paul Sartre chamava de má-fé o ato de enganar a si mesmo para fugir da responsabilidade de escolher. Dizer "eu sou assim mesmo, não posso mudar" é bem mais fácil do que encarar o desconforto de ser autêntico.</p>
         </div>
-        <div class="reading-grid">
-          <div class="text-column">
-            <h2>A Filosofia</h2>
-            <p>A simplicidade não é ausência de conteúdo, é a presença de espaço. Reclamar o próprio tempo exige filtrar o essencial do supérfluo.</p>
-            <blockquote>
-              "Nem toda urgência alheia precisa se tornar uma crise pessoal."
-            </blockquote>
-            <p>Adotar uma postura analógica no cotidiano é criar barreiras intencionais contra o fluxo ininterrupto de estímulos.</p>
-          </div>
-          <div class="media-column">
-            <div class="analog-frame">
-              <div class="image-placeholder">
-                <span>[ FOTO ANALÓGICA ]</span>
-              </div>
-              <p class="caption">Fig 2.1 — O espaço entre os pensamentos.</p>
-            </div>
-          </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Imagem / Ilustração 2 ]</span></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Aba 03 -->
-      <section id="tab-3" class="tab-content">
-        <div class="card-header">
-          <span class="tag-number">03 / CAPÍTULO</span>
-          <button class="close-btn" aria-label="Fechar">&times; Voltar ao Índice</button>
-        </div>
-        <div class="reading-grid">
-          <div class="text-column">
-            <h2>O Acolhimento</h2>
-            <p>Permitir-se falhar ou pausar não é fraqueza. É a manutenção básica necessária para evitar colapsos maiores adiante.</p>
-            <blockquote>
-              "Trate seu ritmo atual com a paciência que você ofereceria a um amigo."
-            </blockquote>
-            <p>Crie um ambiente físico e mental seguro onde suas emoções possam ser processadas sem julgamentos precipitados.</p>
-          </div>
-          <div class="media-column">
-            <div class="analog-frame">
-              <div class="image-placeholder">
-                <span>[ REGISTRO VISUAL ]</span>
-              </div>
-              <p class="caption">Fig 3.1 — Zonas de pausa diária.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- PÁGINA: FILOSOFIA -->
+    <section id="filosofia" class="page-section">
+      <h2 class="section-title">Filosofia</h2>
+      
+      <div class="intro-block">
+        <p>A filosofia não precisa ser uma lista de nomes decorados para a prova do vestibular; ela pode ser o kit de sobrevivência definitivo para quando o mundo parece não fazer o menor sentido.</p>
+        <h3 class="wine-text">O mito do sentido pronto</h3>
+        <p>A sociedade cobra que você saiba quem é, qual faculdade vai prestar e onde estará daqui a dez anos. A filosofia entra nessa história para provar que ninguém — nem os adultos que te cobram — tem tudo sob controle.</p>
+      </div>
 
-      <!-- Aba 04 -->
-      <section id="tab-4" class="tab-content">
-        <div class="card-header">
-          <span class="tag-number">04 / CAPÍTULO</span>
-          <button class="close-btn" aria-label="Fechar">&times; Voltar ao Índice</button>
+      <!-- Texto Camus + Imagem -->
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>Absurdismo (Albert Camus) - Tirando o peso dos ombros:</strong> Camus percebeu que a gente tenta achar uma lógica perfeita para a vida, mas o mundo é caótico e imprevisível. Em vez de surtar tentando controlar tudo, a proposta dele é libertadora: aceite que a vida é meio absurda mesmo e viva com intensidade. Quando você entende que certas exigências não fazem sentido, para de carregar o peso de ter que ser perfeito.</p>
         </div>
-        <div class="reading-grid">
-          <div class="text-column">
-            <h2>Pressão do Futuro</h2>
-            <p>A ansiedade é a tentativa de viver amanhã com os recursos de hoje. O futuro se constrói na microfísica do presente.</p>
-            <blockquote>
-              "O amanhã ainda não existe; não tente resolver dilemas hipotéticos hoje."
-            </blockquote>
-            <p>Ancore-se no que está ao seu alcance imediato. Reduza o horizonte de planejamento quando o cenário parecer opressor.</p>
-          </div>
-          <div class="media-column">
-            <div class="analog-frame">
-              <div class="image-placeholder">
-                <span>[ ILUSTRAÇÃO CONCEITUAL ]</span>
-              </div>
-              <p class="caption">Fig 4.1 — O horizonte do presente.</p>
-            </div>
-          </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Espaço Imagem - Camus ]</span></div>
         </div>
-      </section>
+      </div>
 
-    </main>
-  </div>
+      <!-- Texto Sartre + Imagem -->
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>Existencialismo (Jean-Paul Sartre) - A folha em branco:</strong> Para Sartre, a existência vem antes da essência. Traduzindo: você não nasce com um destino traçado, um rótulo definitivo ou um "propósito" pronto. Primeiro você existe; depois você escolhe quem quer ser através das suas decisões diárias. Você não é "o cara tímido" ou "a garota ansiosa" de forma fixa — isso são só momentos, não um decreto sobre quem você é.</p>
+        </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Espaço Imagem - Sartre ]</span></div>
+        </div>
+      </div>
+
+      <!-- Novo Texto Pedro Cardoso + Imagem -->
+      <div class="intro-block" style="margin-bottom: 20px;">
+        <h3 class="wine-text">O mundo digital</h3>
+      </div>
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>Redes Antissociais (Pedro Cardoso) - A ilusão da conexão:</strong> O ator e pensador Pedro Cardoso propõe uma reflexão direta: o que chamamos de "redes sociais" muitas vezes nos isola em vez de conectar. Nas plataformas, a convivência real é trocada por métricas de validação — likes, seguidores e uma vitrine de comparações constantes. Essa busca sem fim por aprovação gera uma ansiedade contínua e a falsa sensação de que todo mundo tem uma vida perfeita, menos você. Cuidar da saúde mental, nesse contexto, é entender que conexões humanas de verdade não dependem do algoritmo e que você não precisa transformar sua rotina em conteúdo para ter valor.</p>
+        </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Espaço Imagem - Pedro Cardoso ]</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA: MELANCOLIA -->
+    <section id="melancolia" class="page-section">
+      <h2 class="section-title">Melancolia</h2>
+      
+      <div class="intro-block">
+        <p>Sentir-se mal de vez em quando faz parte de estar vivo. A cultura da internet tenta vender a ideia de que a gente precisa estar 100% produtivo, radiante e resolvido o tempo todo, mas sustentar isso é impossível.</p>
+      </div>
+
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>Adeus, positividade tóxica:</strong> A melancolia não é um defeito de fábrica nem uma falha moral. Forçar um sorriso quando tudo por dentro parece pesado só gera mais exaustão. Às vezes, o primeiro passo é dar permissão a si mesmo para ter um dia ruim, sem se culpar por isso.</p>
+          <p><strong>Desconectar sem culpa:</strong> Em dias de tempestade mental, não tente resolver sua vida inteira de uma vez, reduza as exigências do dia, diminua o tempo de tela — que costuma funcionar como combustível para a comparação — e foca no básico.</p>
+        </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Imagem / Ilustração 1 ]</span></div>
+        </div>
+      </div>
+
+      <div class="topic-row">
+        <div class="text-side">
+          <p><strong>Tirar da cabeça:</strong> Tente encarar o silêncio não como um inimigo a ser abafado pelos fones, mas como uma pausa necessária. Realizar atividades que te ajuda a desorganizar o caos íntimo (escrever o que você está sentindo num papel sem obrigação de ficar bonito, por exemplo).</p>
+          <p><strong>Saber a hora de pedir reforço:</strong> Sentir tristeza por um tempo faz parte; carregar um peso insuportável sozinho durante semanas não precisa ser uma rotina. Se a névoa ficar densa demais a ponto de você não conseguir navegar sozinho, conversar com alguém de confiança e buscar apoio profissional é um ato de coragem e preservação.</p>
+        </div>
+        <div class="image-side">
+          <div class="image-placeholder block-beige"><span>[ Imagem / Ilustração 2 ]</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <script src="script.js"></script>
 </body>
