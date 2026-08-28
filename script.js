@@ -1,5 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Navegação entre Páginas
+  // 1. Sistema de Acessibilidade Persistente
+  let fontScale = parseFloat(localStorage.getItem('antiSurto_fontScale')) || 1;
+  let highContrast = localStorage.getItem('antiSurto_contrast') === 'true';
+
+  const applyAccessibility = () => {
+    document.documentElement.style.setProperty('--font-base', `${fontScale}rem`);
+    if (highContrast) {
+      document.body.classList.add('high-contrast');
+    } else {
+      document.body.classList.remove('high-contrast');
+    }
+  };
+
+  applyAccessibility();
+
+  document.getElementById('btn-increase').addEventListener('click', () => {
+    if (fontScale < 1.4) {
+      fontScale += 0.08;
+      localStorage.setItem('antiSurto_fontScale', fontScale);
+      applyAccessibility();
+    }
+  });
+
+  document.getElementById('btn-decrease').addEventListener('click', () => {
+    if (fontScale > 0.8) {
+      fontScale -= 0.08;
+      localStorage.setItem('antiSurto_fontScale', fontScale);
+      applyAccessibility();
+    }
+  });
+
+  document.getElementById('btn-contrast').addEventListener('click', () => {
+    highContrast = !highContrast;
+    localStorage.setItem('antiSurto_contrast', highContrast);
+    applyAccessibility();
+  });
+
+  // 2. Navegação entre Seções
   const links = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.page-section');
 
@@ -22,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // GIFs Animados em Hover
+  // 3. Reprodução de GIFs ao passar o mouse
   const hoverGifs = document.querySelectorAll('.hover-gif');
   
   hoverGifs.forEach(img => {
@@ -39,18 +76,5 @@ document.addEventListener('DOMContentLoaded', () => {
     img.addEventListener('mouseleave', () => {
       img.src = staticSrc;
     });
-  });
-
-  // Botão de Aumentar Fonte
-  const btnFont = document.getElementById('btn-font');
-  btnFont.addEventListener('click', () => {
-    document.body.classList.toggle('font-large');
-    btnFont.textContent = document.body.classList.contains('font-large') ? 'A -' : 'A +';
-  });
-
-  // Botão de Alto Contraste
-  const btnContrast = document.getElementById('btn-contrast');
-  btnContrast.addEventListener('click', () => {
-    document.body.classList.toggle('high-contrast');
   });
 });

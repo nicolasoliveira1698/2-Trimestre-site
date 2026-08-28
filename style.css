@@ -3,20 +3,19 @@
   --bg-block: #D6C2AF;
   --wine: #6b2737;
   --text-dark: #3a322b;
-  --base-font-size: 1.15rem;
+  --font-base: 1rem;
 }
 
-/* Modo Alto Contraste */
+/* Modo de Alto Contraste Global */
 body.high-contrast {
-  --bg-light: #121212;
-  --bg-block: #242424;
-  --wine: #F1C40F;
-  --text-dark: #FFFFFF;
+  --bg-light: #000000;
+  --bg-block: #1a1a1a;
+  --wine: #ffff00;
+  --text-dark: #ffffff;
 }
 
-/* Tamanho Aumentado de Fonte */
-body.font-large {
-  --base-font-size: 1.35rem;
+html {
+  font-size: var(--font-base);
 }
 
 body {
@@ -26,31 +25,35 @@ body {
   color: var(--text-dark);
   font-family: 'Lora', serif;
   line-height: 1.8;
-  font-size: var(--base-font-size);
+  font-size: 1.15rem;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Barra de Acessibilidade Fixa no Topo Direito */
+/* Barra de Acessibilidade */
 .accessibility-bar {
   position: fixed;
   top: 15px;
-  right: 20px;
+  right: 15px;
   z-index: 1000;
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  background-color: var(--bg-block);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--wine);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .accessibility-bar button {
-  background-color: var(--bg-block);
+  background-color: var(--bg-light);
   color: var(--text-dark);
   border: 1px solid var(--wine);
-  padding: 6px 12px;
-  font-family: 'Lora', serif;
+  padding: 4px 10px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: 2px 2px 0px var(--wine);
+  border-radius: 12px;
   transition: all 0.2s ease;
 }
 
@@ -76,10 +79,6 @@ body {
   margin: 15px 0;
   line-height: 1.2;
   white-space: nowrap;
-}
-
-body.font-large .site-header h1 {
-  font-size: 3.4rem;
 }
 
 .thin-line {
@@ -115,10 +114,6 @@ body.font-large .site-header h1 {
   transition: color 0.3s ease;
 }
 
-body.font-large .nav-link {
-  font-size: 1.5rem;
-}
-
 .nav-link::after {
   content: '';
   position: absolute;
@@ -144,7 +139,7 @@ body.font-large .nav-link {
 .content-area {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px 100px 40px;
+  padding: 0 40px 40px 40px;
   min-height: 60vh;
 }
 
@@ -171,10 +166,6 @@ body.font-large .nav-link {
   text-align: left;
 }
 
-body.font-large .section-title {
-  font-size: 3.2rem;
-}
-
 .wine-text { color: var(--wine); }
 
 h3 {
@@ -182,10 +173,6 @@ h3 {
   font-size: 1.8rem;
   margin-top: 0;
   margin-bottom: 15px;
-}
-
-body.font-large h3 {
-  font-size: 2.1rem;
 }
 
 strong {
@@ -206,10 +193,6 @@ strong {
   margin-bottom: 20px;
 }
 
-body.font-large .editorial-title {
-  font-size: 2.8rem;
-}
-
 .intro-text {
   font-style: italic;
   margin-bottom: 25px;
@@ -225,6 +208,7 @@ body.font-large .editorial-title {
   padding-top: 8px;
 }
 
+/* Disposição em Duas Colunas */
 .topic-row {
   display: flex;
   justify-content: space-between;
@@ -296,41 +280,42 @@ body.font-large .editorial-title {
   font-style: italic;
 }
 
-body.font-large .quote {
-  font-size: 1.6rem;
-}
-
-/* Rodapé Institucional (Aba Beige Queimado) */
-.official-footer {
+/* Rodapé Oficial (Bege Queimado no Final da Tela) */
+.site-footer {
   width: 100%;
   background-color: var(--bg-block);
-  border-top: 2px solid var(--wine);
-  padding: 18px 0;
-  text-align: center;
+  border-top: 1px solid var(--wine);
+  padding: 22px 0;
   margin-top: 60px;
+  text-align: center;
 }
 
-.footer-content {
+.footer-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  font-family: 'Cinzel', serif; /* Caligrafia solene/oficial */
-  font-size: 0.95rem;
+  font-family: 'Cinzel', serif;
   font-weight: 700;
-  color: var(--text-dark);
   letter-spacing: 1.5px;
-  white-space: nowrap;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.school-title {
+  color: var(--wine);
 }
 
 .footer-separator {
+  opacity: 0.5;
   color: var(--wine);
 }
 
 /* Responsividade */
 @media (max-width: 900px) {
   .site-header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     white-space: normal;
   }
   
@@ -347,12 +332,10 @@ body.font-large .quote {
     height: 280px;
   }
 
-  .footer-content {
+  .footer-container {
     flex-direction: column;
     gap: 5px;
-    font-size: 0.8rem;
-    white-space: normal;
-    padding: 0 15px;
+    font-size: 0.85rem;
   }
 
   .footer-separator {
