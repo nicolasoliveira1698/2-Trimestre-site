@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Navegação de Páginas
+  // Navegação entre abas
   const links = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.page-section');
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 2. Animação de GIFs Hover
+  // Animação de GIFs no hover
   const hoverGifs = document.querySelectorAll('.hover-gif');
   
   hoverGifs.forEach(img => {
@@ -41,30 +41,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Controles de Acessibilidade (Aumentar/Diminuir fonte e Alto Contraste)
-  let currentFontScale = 1;
-  const maxScale = 1.4;
-  const minScale = 0.85;
+  // Acessibilidade: Redimensionamento Global de Fonte
+  let fontPercent = parseInt(localStorage.getItem('userFontPercent')) || 100;
+  document.documentElement.style.setProperty('--base-font-size', fontPercent + '%');
 
   const btnIncrease = document.getElementById('btn-increase-font');
   const btnDecrease = document.getElementById('btn-decrease-font');
   const btnContrast = document.getElementById('btn-contrast');
 
   btnIncrease.addEventListener('click', () => {
-    if (currentFontScale < maxScale) {
-      currentFontScale += 0.08;
-      document.documentElement.style.setProperty('--font-scale', currentFontScale);
+    if (fontPercent < 140) {
+      fontPercent += 10;
+      document.documentElement.style.setProperty('--base-font-size', fontPercent + '%');
+      localStorage.setItem('userFontPercent', fontPercent);
     }
   });
 
   btnDecrease.addEventListener('click', () => {
-    if (currentFontScale > minScale) {
-      currentFontScale -= 0.08;
-      document.documentElement.style.setProperty('--font-scale', currentFontScale);
+    if (fontPercent > 80) {
+      fontPercent -= 10;
+      document.documentElement.style.setProperty('--base-font-size', fontPercent + '%');
+      localStorage.setItem('userFontPercent', fontPercent);
     }
   });
 
+  // Acessibilidade: Alto Contraste
+  if (localStorage.getItem('userContrast') === 'enabled') {
+    document.body.classList.add('high-contrast');
+  }
+
   btnContrast.addEventListener('click', () => {
     document.body.classList.toggle('high-contrast');
+    if (document.body.classList.contains('high-contrast')) {
+      localStorage.setItem('userContrast', 'enabled');
+    } else {
+      localStorage.setItem('userContrast', 'disabled');
+    }
   });
-});
+});8
