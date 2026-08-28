@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Navegação do Menu
+  // 1. Navegação de Páginas
   const links = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.page-section');
 
@@ -22,14 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Controle de Animação dos GIFs ao passar o mouse
+  // 2. Animação de GIFs Hover
   const hoverGifs = document.querySelectorAll('.hover-gif');
   
   hoverGifs.forEach(img => {
     const staticSrc = img.getAttribute('src');
     const animatedSrc = img.getAttribute('data-gif');
 
-    // Pré-carrega o GIF em segundo plano para não ter atraso no primeiro hover
     const preloadImg = new Image();
     preloadImg.src = animatedSrc;
 
@@ -40,5 +39,32 @@ document.addEventListener('DOMContentLoaded', () => {
     img.addEventListener('mouseleave', () => {
       img.src = staticSrc;
     });
+  });
+
+  // 3. Controles de Acessibilidade (Aumentar/Diminuir fonte e Alto Contraste)
+  let currentFontScale = 1;
+  const maxScale = 1.4;
+  const minScale = 0.85;
+
+  const btnIncrease = document.getElementById('btn-increase-font');
+  const btnDecrease = document.getElementById('btn-decrease-font');
+  const btnContrast = document.getElementById('btn-contrast');
+
+  btnIncrease.addEventListener('click', () => {
+    if (currentFontScale < maxScale) {
+      currentFontScale += 0.08;
+      document.documentElement.style.setProperty('--font-scale', currentFontScale);
+    }
+  });
+
+  btnDecrease.addEventListener('click', () => {
+    if (currentFontScale > minScale) {
+      currentFontScale -= 0.08;
+      document.documentElement.style.setProperty('--font-scale', currentFontScale);
+    }
+  });
+
+  btnContrast.addEventListener('click', () => {
+    document.body.classList.toggle('high-contrast');
   });
 });

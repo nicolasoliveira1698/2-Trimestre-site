@@ -3,23 +3,61 @@
   --bg-block: #D6C2AF;
   --wine: #6b2737;
   --text-dark: #3a322b;
+  --font-scale: 1;
+}
+
+/* Modo Alto Contraste */
+body.high-contrast {
+  --bg-light: #000000;
+  --bg-block: #1a1a1a;
+  --wine: #ffff00;
+  --text-dark: #ffffff;
 }
 
 body {
   margin: 0;
   padding: 0;
+  padding-bottom: 70px; /* Previne sobreposição do footer fixo */
   background-color: var(--bg-light);
   color: var(--text-dark);
   font-family: 'Lora', serif;
   line-height: 1.8;
-  font-size: 1.15rem;
+  font-size: calc(1.15rem * var(--font-scale));
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Barra de Acessibilidade */
+.accessibility-bar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.accessibility-bar button {
+  background-color: var(--bg-block);
+  color: var(--text-dark);
+  border: 1px solid var(--wine);
+  padding: 6px 12px;
+  font-family: 'Lora', serif;
+  font-size: calc(0.9rem * var(--font-scale));
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.accessibility-bar button:hover {
+  background-color: var(--wine);
+  color: var(--bg-light);
 }
 
 /* Cabeçalho Centralizado */
 .site-header {
   text-align: center;
-  padding: 40px 20px 20px 20px;
+  padding: 50px 20px 20px 20px;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -27,7 +65,7 @@ body {
 .site-header h1 {
   font-family: 'Playfair Display', serif;
   color: var(--wine);
-  font-size: 3rem;
+  font-size: calc(3rem * var(--font-scale));
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 15px 0;
@@ -61,7 +99,7 @@ body {
   text-decoration: none;
   color: var(--text-dark);
   font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
+  font-size: calc(1.3rem * var(--font-scale));
   font-weight: 700;
   position: relative;
   display: inline-block;
@@ -112,7 +150,7 @@ body {
 
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-size: calc(2.8rem * var(--font-scale));
   color: var(--wine);
   margin-top: 40px;
   margin-bottom: 40px;
@@ -123,7 +161,7 @@ body {
 
 h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+  font-size: calc(1.8rem * var(--font-scale));
   margin-top: 0;
   margin-bottom: 15px;
 }
@@ -142,19 +180,20 @@ strong {
 .editorial-title {
   color: var(--wine);
   font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
+  font-size: calc(2.4rem * var(--font-scale));
   margin-bottom: 20px;
 }
 
 .intro-text {
   font-style: italic;
   margin-bottom: 25px;
+  font-size: calc(1.15rem * var(--font-scale));
 }
 
 .page-section#home .intro-text:first-of-type::first-letter {
   font-family: 'Playfair Display', serif;
   color: var(--wine);
-  font-size: 4.5rem;
+  font-size: calc(4.5rem * var(--font-scale));
   float: left;
   line-height: 0.8;
   padding-right: 12px;
@@ -178,6 +217,7 @@ strong {
 .text-side p {
   margin-top: 0;
   margin-bottom: 20px;
+  font-size: calc(1.15rem * var(--font-scale));
 }
 
 .image-side {
@@ -193,13 +233,13 @@ strong {
   justify-content: center;
   color: var(--wine);
   font-family: sans-serif;
-  font-size: 0.9rem;
+  font-size: calc(0.9rem * var(--font-scale));
   letter-spacing: 1px;
   border: 1px solid rgba(107, 39, 55, 0.2);
   box-shadow: 4px 4px 0px rgba(107, 39, 55, 0.1);
 }
 
-/* Estilização e Moldura Retro dos GIFs */
+/* Container dos GIFs */
 .gif-container {
   width: 100%;
   height: 320px;
@@ -226,7 +266,7 @@ strong {
 
 .quote {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: calc(1.4rem * var(--font-scale));
   color: var(--wine);
   border-left: 3px solid var(--wine);
   padding-left: 20px;
@@ -234,9 +274,43 @@ strong {
   font-style: italic;
 }
 
+/* Aba Fixa Inferior */
+.fixed-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background-color: var(--bg-block);
+  color: var(--text-dark);
+  border-top: 1px solid var(--wine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: calc(0.95rem * var(--font-scale));
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.bar-divider {
+  color: var(--wine);
+}
+
 @media (max-width: 900px) {
+  .accessibility-bar {
+    position: relative;
+    top: 0;
+    right: 0;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
   .site-header h1 {
-    font-size: 2rem;
+    font-size: calc(2rem * var(--font-scale));
     white-space: normal;
   }
   
@@ -251,5 +325,11 @@ strong {
   .image-placeholder, .gif-container {
     margin-top: 20px;
     height: 280px;
+  }
+
+  .fixed-bottom-bar {
+    font-size: calc(0.8rem * var(--font-scale));
+    gap: 8px;
+    padding: 0 10px;
   }
 }
