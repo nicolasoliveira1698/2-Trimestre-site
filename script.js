@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Navegação entre abas
+  // Navegação entre Páginas
   const links = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.page-section');
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Animação de GIFs no hover
+  // GIFs Animados em Hover
   const hoverGifs = document.querySelectorAll('.hover-gif');
   
   hoverGifs.forEach(img => {
@@ -41,41 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Acessibilidade: Redimensionamento Global de Fonte
-  let fontPercent = parseInt(localStorage.getItem('userFontPercent')) || 100;
-  document.documentElement.style.setProperty('--base-font-size', fontPercent + '%');
+  // Botão de Aumentar Fonte
+  const btnFont = document.getElementById('btn-font');
+  btnFont.addEventListener('click', () => {
+    document.body.classList.toggle('font-large');
+    btnFont.textContent = document.body.classList.contains('font-large') ? 'A -' : 'A +';
+  });
 
-  const btnIncrease = document.getElementById('btn-increase-font');
-  const btnDecrease = document.getElementById('btn-decrease-font');
+  // Botão de Alto Contraste
   const btnContrast = document.getElementById('btn-contrast');
-
-  btnIncrease.addEventListener('click', () => {
-    if (fontPercent < 140) {
-      fontPercent += 10;
-      document.documentElement.style.setProperty('--base-font-size', fontPercent + '%');
-      localStorage.setItem('userFontPercent', fontPercent);
-    }
-  });
-
-  btnDecrease.addEventListener('click', () => {
-    if (fontPercent > 80) {
-      fontPercent -= 10;
-      document.documentElement.style.setProperty('--base-font-size', fontPercent + '%');
-      localStorage.setItem('userFontPercent', fontPercent);
-    }
-  });
-
-  // Acessibilidade: Alto Contraste
-  if (localStorage.getItem('userContrast') === 'enabled') {
-    document.body.classList.add('high-contrast');
-  }
-
   btnContrast.addEventListener('click', () => {
     document.body.classList.toggle('high-contrast');
-    if (document.body.classList.contains('high-contrast')) {
-      localStorage.setItem('userContrast', 'enabled');
-    } else {
-      localStorage.setItem('userContrast', 'disabled');
-    }
   });
-});8
+});

@@ -3,11 +3,20 @@
   --bg-block: #D6C2AF;
   --wine: #6b2737;
   --text-dark: #3a322b;
-  --base-font-size: 100%;
+  --base-font-size: 1.15rem;
 }
 
-html {
-  font-size: var(--base-font-size);
+/* Modo Alto Contraste */
+body.high-contrast {
+  --bg-light: #121212;
+  --bg-block: #242424;
+  --wine: #F1C40F;
+  --text-dark: #FFFFFF;
+}
+
+/* Tamanho Aumentado de Fonte */
+body.font-large {
+  --base-font-size: 1.35rem;
 }
 
 body {
@@ -17,72 +26,40 @@ body {
   color: var(--text-dark);
   font-family: 'Lora', serif;
   line-height: 1.8;
-  font-size: 1.15rem;
+  font-size: var(--base-font-size);
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.2s ease;
 }
 
-/* Modo Alto Contraste */
-body.high-contrast {
-  --bg-light: #000000;
-  --bg-block: #1a1a1a;
-  --wine: #FFFF00;
-  --text-dark: #FFFFFF;
-}
-
-body.high-contrast .thin-line {
-  border-top-color: #FFFF00;
-}
-
-body.high-contrast .gif-container,
-body.high-contrast .image-placeholder {
-  border-color: #FFFF00;
-  box-shadow: 4px 4px 0px #FFFF00;
-}
-
-body.high-contrast .site-footer {
-  background-color: #1a1a1a;
-  border-top: 2px solid #FFFF00;
-}
-
-/* Barra de Acessibilidade Fixa */
+/* Barra de Acessibilidade Fixa no Topo Direito */
 .accessibility-bar {
   position: fixed;
   top: 15px;
-  right: 15px;
+  right: 20px;
   z-index: 1000;
   display: flex;
-  gap: 8px;
-  background-color: var(--bg-block);
-  padding: 6px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--wine);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  gap: 10px;
 }
 
 .accessibility-bar button {
-  background-color: var(--wine);
-  color: var(--bg-light);
-  border: none;
-  padding: 5px 12px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-family: sans-serif;
-  font-weight: bold;
+  background-color: var(--bg-block);
+  color: var(--text-dark);
+  border: 1px solid var(--wine);
+  padding: 6px 12px;
+  font-family: 'Lora', serif;
   font-size: 0.85rem;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-body.high-contrast .accessibility-bar button {
-  color: #000000;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--wine);
+  transition: all 0.2s ease;
 }
 
 .accessibility-bar button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+  background-color: var(--wine);
+  color: var(--bg-light);
 }
 
-/* Cabeçalho Centralizado */
+/* Cabeçalho */
 .site-header {
   text-align: center;
   padding: 50px 20px 20px 20px;
@@ -101,13 +78,17 @@ body.high-contrast .accessibility-bar button {
   white-space: nowrap;
 }
 
+body.font-large .site-header h1 {
+  font-size: 3.4rem;
+}
+
 .thin-line {
   border: none;
   border-top: 1px solid var(--text-dark);
   margin: 0;
 }
 
-/* Menu de Navegação */
+/* Navegação */
 .navigation {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -134,6 +115,10 @@ body.high-contrast .accessibility-bar button {
   transition: color 0.3s ease;
 }
 
+body.font-large .nav-link {
+  font-size: 1.5rem;
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
@@ -155,11 +140,12 @@ body.high-contrast .accessibility-bar button {
   color: var(--wine);
 }
 
-/* Área de Conteúdo */
+/* Conteúdo Principal */
 .content-area {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px 40px 40px;
+  padding: 0 40px 100px 40px;
+  min-height: 60vh;
 }
 
 .page-section {
@@ -185,6 +171,10 @@ body.high-contrast .accessibility-bar button {
   text-align: left;
 }
 
+body.font-large .section-title {
+  font-size: 3.2rem;
+}
+
 .wine-text { color: var(--wine); }
 
 h3 {
@@ -192,6 +182,10 @@ h3 {
   font-size: 1.8rem;
   margin-top: 0;
   margin-bottom: 15px;
+}
+
+body.font-large h3 {
+  font-size: 2.1rem;
 }
 
 strong {
@@ -212,6 +206,10 @@ strong {
   margin-bottom: 20px;
 }
 
+body.font-large .editorial-title {
+  font-size: 2.8rem;
+}
+
 .intro-text {
   font-style: italic;
   margin-bottom: 25px;
@@ -227,7 +225,6 @@ strong {
   padding-top: 8px;
 }
 
-/* Layout de duas colunas */
 .topic-row {
   display: flex;
   justify-content: space-between;
@@ -299,36 +296,38 @@ strong {
   font-style: italic;
 }
 
-/* Rodapé no fim da página */
-.site-footer {
-  background-color: var(--wine);
-  color: #F4EFE6;
+body.font-large .quote {
+  font-size: 1.6rem;
+}
+
+/* Rodapé Institucional (Aba Beige Queimado) */
+.official-footer {
+  width: 100%;
+  background-color: var(--bg-block);
+  border-top: 2px solid var(--wine);
+  padding: 18px 0;
   text-align: center;
-  padding: 35px 20px;
   margin-top: 60px;
-  border-top: 1px solid var(--text-dark);
 }
 
-.footer-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin: 0 0 5px 0;
-  letter-spacing: 1px;
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Cinzel', serif; /* Caligrafia solene/oficial */
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 1.5px;
+  white-space: nowrap;
 }
 
-.footer-school {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 10px 0;
+.footer-separator {
+  color: var(--wine);
 }
 
-.footer-sub {
-  font-size: 0.85rem;
-  opacity: 0.85;
-  margin: 0;
-}
-
+/* Responsividade */
 @media (max-width: 900px) {
   .site-header h1 {
     font-size: 2rem;
@@ -348,9 +347,15 @@ strong {
     height: 280px;
   }
 
-  .accessibility-bar {
-    top: 5px;
-    right: 5px;
-    padding: 4px 8px;
+  .footer-content {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.8rem;
+    white-space: normal;
+    padding: 0 15px;
+  }
+
+  .footer-separator {
+    display: none;
   }
 }
